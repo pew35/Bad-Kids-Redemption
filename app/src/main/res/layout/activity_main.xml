@@ -83,9 +83,11 @@
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/settings"
-        tools:layout_editor_absoluteX="340dp"
-        tools:layout_editor_absoluteY="3dp" />
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settings" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
