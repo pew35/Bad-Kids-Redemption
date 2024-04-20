@@ -4,20 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bkg"
     tools:context=".GameActivity">
 
-    <WebView
-        android:id="@+id/gameScreen"
-        android:layout_width="396dp"
-        android:layout_height="489dp"
+
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="386dp"
+        android:layout_height="487dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="127dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="113dp"
+        android:elevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:shape_roundRect_borderColor="@android:color/black"
+        app:shape_roundRect_borderWidth="2dp"
+        app:shape_roundRect_bottomLeftRadius="10dp"
+        app:shape_roundRect_bottomRightRadius="10dp"
+        app:shape_roundRect_topLeftRadius="10dp"
+        app:shape_roundRect_topRightRadius="10dp">
+
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
 
     <ImageView
         android:id="@+id/imageView8"
@@ -31,7 +43,7 @@
 
     <ProgressBar
         android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyleHorizontal"
+        style="@style/CustomProgressBar"
         android:layout_width="279dp"
         android:layout_height="22dp"
         android:layout_marginStart="106dp"
@@ -41,11 +53,12 @@
 
     <ProgressBar
         android:id="@+id/progressBar3"
-        style="?android:attr/progressBarStyleHorizontal"
+        style="@style/CustomProgressBar"
         android:layout_width="277dp"
         android:layout_height="20dp"
         android:layout_marginStart="107dp"
         android:layout_marginTop="77dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,6 +69,7 @@
         android:layout_marginStart="106dp"
         android:layout_marginTop="5dp"
         android:text="Energy"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -67,6 +81,7 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="55dp"
         android:text="Respect"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -119,7 +134,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="266dp"
         android:layout_marginTop="668dp"
+        android:layout_marginEnd="54dp"
         android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
