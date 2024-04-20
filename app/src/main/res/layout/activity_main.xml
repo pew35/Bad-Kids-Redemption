@@ -42,11 +42,17 @@
         android:layout_height="50dp"
         android:layout_marginTop="592dp"
         android:background="@drawable/round_corner"
-        android:hint="  Enter Name"
+        android:hint="     Enter Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textColorHighlight="@color/black"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:gravity="center"/>
 
 
     <ImageView
@@ -58,7 +64,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/male"
-        android:src="@drawable/male_selector"/>
+        android:src="@drawable/male_selector"
+        android:onClick="maleCharacter"/>
 
     <ImageView
         android:id="@+id/imageView4"
@@ -69,7 +76,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/female"
-        android:src="@drawable/female_selector"/>
+        android:src="@drawable/female_selector"
+        android:onClick="femaleCharacter"/>
 
     <ImageView
         android:id="@+id/imageView5"
