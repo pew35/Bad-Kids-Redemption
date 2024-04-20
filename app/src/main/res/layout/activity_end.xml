@@ -8,6 +8,7 @@
     tools:context=".EndActivity">
 
     <io.github.florent37.shapeofview.shapes.DiagonalView
+        android:id="@+id/diagonalView"
         android:layout_width="416dp"
         android:layout_height="604dp"
         android:elevation="4dp"
@@ -20,7 +21,31 @@
 
         <WebView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"></WebView>
     </io.github.florent37.shapeofview.shapes.DiagonalView>
 
+    <io.github.florent37.shapeofview.shapes.BubbleView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="236dp"
+        android:layout_marginTop="544dp"
+        android:layout_x="182dp"
+        android:layout_y="456dp"
+        app:arrow_posititon_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_bubble_arrowHeight="20dp"
+        app:shape_bubble_arrowPosition="left"
+        app:shape_bubble_arrowWidth="20dp"
+        app:shape_bubble_borderRadius="40dp">
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"
+            app:srcCompat="@drawable/female" />
+
+
+    </io.github.florent37.shapeofview.shapes.BubbleView>
 </androidx.constraintlayout.widget.ConstraintLayout>

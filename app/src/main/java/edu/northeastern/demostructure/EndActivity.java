@@ -12,3 +12,4 @@ public class EndActivity extends AppCompatActivity {
         setContentView(R.layout.activity_end);
     }
 }
+
