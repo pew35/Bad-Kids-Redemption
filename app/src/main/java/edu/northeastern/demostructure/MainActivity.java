@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         PopupMenu popupMenu = new PopupMenu(this, settings);
 
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
