@@ -84,7 +84,6 @@
         android:layout_marginStart="312dp"
         android:layout_marginTop="16dp"
         android:onClick="sound"
-        android:src="@drawable/settings_selector"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/soundon" />
