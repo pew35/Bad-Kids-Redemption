@@ -4,24 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bkg"
     tools:context=".EndActivity">
 
     <io.github.florent37.shapeofview.shapes.DiagonalView
-        android:layout_width="410dp"
-        android:layout_height="470dp"
-        android:elevation="10dp"
+        android:layout_width="416dp"
+        android:layout_height="604dp"
+        android:elevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shape_diagonal_angle="30"
+        app:shape_diagonal_angle="20"
         app:shape_diagonal_direction="right"
         app:shape_diagonal_position="bottom">
 
 
-        <!-- YOUR CONTENT -->
-
         <WebView
             android:layout_width="match_parent"
-            android:layout_height="591dp" />
-
+            android:layout_height="match_parent" />
     </io.github.florent37.shapeofview.shapes.DiagonalView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
