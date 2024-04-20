@@ -22,7 +22,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    boolean soundFlag = true;
+    boolean soundFlag;
     PopupMenu popupMenu;
     ImageView settingsImg;
 
@@ -30,10 +30,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        soundFlag = true;
 
         settingsImg = findViewById(R.id.imageView5);
-
-
     }
 
 
@@ -50,5 +49,19 @@ public class MainActivity extends AppCompatActivity {
     public void femaleCharacter(View view) {
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
+    }
+
+    public void sound(View view) {
+        if(soundFlag == true){
+            AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+            amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
+            settingsImg.setImageResource(R.drawable.soundoff);
+            soundFlag = false;
+        } else if(soundFlag == false){
+            AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+            amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
+            settingsImg.setImageResource(R.drawable.soundon);
+            soundFlag = true;
+        }
     }
 }
