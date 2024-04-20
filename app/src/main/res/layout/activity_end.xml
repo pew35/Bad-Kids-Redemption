@@ -7,37 +7,41 @@
     android:background="@drawable/bkg"
     tools:context=".EndActivity">
 
-    <io.github.florent37.shapeofview.shapes.DiagonalView
-        android:id="@+id/diagonalView"
-        android:layout_width="416dp"
-        android:layout_height="604dp"
+    <io.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="386dp"
+        android:layout_height="487dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_roundRect_borderColor="@android:color/black"
+        app:shape_roundRect_borderWidth="2dp"
+        app:shape_roundRect_bottomLeftRadius="30dp"
+        app:shape_roundRect_bottomRightRadius="30dp"
+        app:shape_roundRect_topLeftRadius="30dp"
+        app:shape_roundRect_topRightRadius="30dp">
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <io.github.florent37.shapeofview.shapes.CircleView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+
+        android:layout_marginStart="245dp"
+        android:layout_marginTop="534dp"
         android:elevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shape_diagonal_angle="20"
-        app:shape_diagonal_direction="right"
-        app:shape_diagonal_position="bottom">
-
-
-        <WebView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></WebView>
-    </io.github.florent37.shapeofview.shapes.DiagonalView>
-
-    <io.github.florent37.shapeofview.shapes.BubbleView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="236dp"
-        android:layout_marginTop="544dp"
-        android:layout_x="182dp"
-        android:layout_y="456dp"
-        app:arrow_posititon_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shape_bubble_arrowHeight="20dp"
-        app:shape_bubble_arrowPosition="left"
-        app:shape_bubble_arrowWidth="20dp"
-        app:shape_bubble_borderRadius="40dp">
+        app:shape_circle_borderColor="@android:color/black"
+        app:shape_circle_borderWidth="2dp">
 
         <ImageView
             android:id="@+id/imageView9"
@@ -46,6 +50,15 @@
             android:background="@android:color/darker_gray"
             app:srcCompat="@drawable/female" />
 
+    </io.github.florent37.shapeofview.shapes.CircleView>
 
-    </io.github.florent37.shapeofview.shapes.BubbleView>
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/dancer"
+        android:layout_width="220dp"
+        android:layout_height="169dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="525dp"
+        android:src="@drawable/gamelast"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
