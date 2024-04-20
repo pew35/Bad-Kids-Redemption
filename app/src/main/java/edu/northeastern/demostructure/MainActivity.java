@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 
@@ -17,10 +19,21 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    ImageView settings = (ImageView) findViewById(R.id.imageView5);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        PopupMenu popupMenu = new PopupMenu(this, settings);
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
 
@@ -39,8 +52,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void settings(View view) {
-        Intent intent = new Intent(this, GameActivity.class);
-        startActivity(intent);
-    }
 }
