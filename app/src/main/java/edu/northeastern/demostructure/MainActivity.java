@@ -3,9 +3,11 @@ package edu.northeastern.demostructure;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -21,6 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     ImageView settings = (ImageView) findViewById(R.id.imageView5);
+    boolean soundFlag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,15 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 if(id == R.id.sound){
-
+                    if(soundFlag == true){
+                        AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+                        amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
+                        soundFlag = false;
+                    } else if(soundFlag == false){
+                        AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+                        amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
+                        soundFlag = true;
+                    }
                 }
                 return false;
             }
