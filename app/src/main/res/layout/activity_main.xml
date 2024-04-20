@@ -87,7 +87,8 @@
         android:layout_marginTop="3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/settings" />
+        app:srcCompat="@drawable/settings"
+        android:src="@drawable/settings_clicked"/>
 
     <ImageView
         android:id="@+id/imageView6"
