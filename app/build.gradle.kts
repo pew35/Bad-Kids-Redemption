@@ -43,5 +43,4 @@ dependencies {
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
     implementation("io.github.florent37:shapeofview:1.4.7")
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.19")
-    implementation("com.github.skydoves:powermenu:2.2.4")
 }

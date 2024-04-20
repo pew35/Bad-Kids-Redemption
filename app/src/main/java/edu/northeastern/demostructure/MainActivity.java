@@ -22,43 +22,18 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView settings = (ImageView) findViewById(R.id.imageView5);
     boolean soundFlag = true;
+    PopupMenu popupMenu;
+    ImageView settingsImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PopupMenu popupMenu = new PopupMenu(this, settings);
+        settingsImg = findViewById(R.id.imageView5);
 
-        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
 
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                int id = menuItem.getItemId();
-                if(id == R.id.sound){
-                    if(soundFlag == true){
-                        AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-                        amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
-                        soundFlag = false;
-                    } else if(soundFlag == false){
-                        AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-                        amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
-                        soundFlag = true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
 
@@ -76,5 +51,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
     }
-
 }
