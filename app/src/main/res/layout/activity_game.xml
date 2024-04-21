@@ -125,11 +125,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/path"
         android:layout_width="370dp"
         android:layout_height="53dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="670dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="670dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
