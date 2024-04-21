@@ -1,6 +1,6 @@
 package edu.northeastern.demostructure;
 
-public class images {
+public class Images {
     private boolean boy;
     private String b_lowSan = "https://cdn.discordapp.com/attachments/1092716491532664895/1229190472006762606/b_lowSan.png?ex=662ec7d5&is=661c52d5&hm=b4826c281f7204b3f331271219a75800c10f31bd45c4436b7c1350a6a0a74154&";
     private String b_magic = "https://cdn.discordapp.com/attachments/1092716491532664895/1229190473109999716/b0magic.png?ex=662ec7d6&is=661c52d6&hm=2ae880ad0de3b36d33b374eac8cae1d45c14680c45b3604f309f557b7e8a38be&";
@@ -18,32 +18,18 @@ public class images {
     private String exercise = "https://cdn.discordapp.com/attachments/1092716491532664895/1227470496115724328/00243-3158460996.png?ex=662885fb&is=661610fb&hm=00910310d406439c2506579f93f46ddd2a2cc5bd5087f0e5c0522736b32639d0&";
     private String magic = "https://cdn.discordapp.com/attachments/1092716491532664895/1227470850920419409/00247-1478110581.png?ex=66288650&is=66161150&hm=fe23a440b7197b6e7cb97f2506defb31cf64c808432cc78d40fc4e33063a0c20&";
 
-    public images(){
-        this.boy = true;
+    public Images(boolean boy){
+        this.boy = boy;
     }
 
-    public void setBoy() {
-        this.boy = true;
-    }
-
-    public void setGirl(){
-        this.boy = false;
-    }
-
-    public String getStudy(){
-        return this.study;
-    }
-
-    public String getDating() {
-        return dating;
-    }
-
-    public String getExercise() {
-        return exercise;
-    }
-
-    public String getMagic() {
-        return magic;
+    public String getEvents(int n){
+        switch (n){
+            case 0: return exercise;
+            case 1: return study;
+            case 2: return dating;
+            case 3: return magic;
+            default: return null;
+        }
     }
 
     public String getEnding(int num){

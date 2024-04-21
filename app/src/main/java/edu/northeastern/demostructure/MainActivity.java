@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     boolean soundFlag;
     PopupMenu popupMenu;
     ImageView settingsImg;
+    boolean boy;
+    boolean fullSetUp = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,27 +39,32 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void startGame(View view) {
-        Intent intent = new Intent(this, EndActivity.class);
-        startActivity(intent);
+        if(fullSetUp) {
+            Intent intent = new Intent(this, GameActivity.class);
+            intent.putExtra("boy", boy);
+            startActivity(intent);
+        }else{
+            Toast.makeText(MainActivity.this,"Choose your character", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void maleCharacter(View view) {
-        Intent intent = new Intent(this, GameActivity.class);
-        startActivity(intent);
+        fullSetUp = true;
+        boy = true;
     }
 
     public void femaleCharacter(View view) {
-        Intent intent = new Intent(this, GameActivity.class);
-        startActivity(intent);
+        fullSetUp = true;
+        boy = false;
     }
 
     public void sound(View view) {
-        if(soundFlag == true){
+        if(soundFlag){
             AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
             amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
             settingsImg.setImageResource(R.drawable.soundoff);
             soundFlag = false;
-        } else if(soundFlag == false){
+        } else{
             AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
             amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
             settingsImg.setImageResource(R.drawable.soundon);
