@@ -167,11 +167,13 @@ public class GameActivity extends AppCompatActivity {
             }
 
             Log.i("%%%%%%%%%%%%%",path);
-            Toast.makeText(this, acts.get(currentIndex), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, acts.get(currentIndex), Toast.LENGTH_SHORT).show();
             energy -= 30;
             showEnergy();
         }else {
             Toast.makeText(this, "nO EnrGy...@#$%", Toast.LENGTH_SHORT).show();
+            path += "nO EnrGy...@#$%";
+            pathtxt.setText(path);
         }
         new Thread(calculateRunnable).start();
     }
