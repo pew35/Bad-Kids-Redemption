@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -69,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Toast.makeText(MainActivity.this,"Choose your character", Toast.LENGTH_LONG).show();
         }
+        if(soundFlag == true){
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
+            mp.start();
+        }
     }
 
     public void maleCharacter(View view) {
@@ -81,7 +86,10 @@ public class MainActivity extends AppCompatActivity {
         } else{
             Toast.makeText(MainActivity.this,"Enter character name", Toast.LENGTH_LONG).show();
         }
-
+        if(soundFlag == true){
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
+            mp.start();
+        }
     }
 
     public void femaleCharacter(View view) {
@@ -94,19 +102,21 @@ public class MainActivity extends AppCompatActivity {
         } else{
             Toast.makeText(MainActivity.this,"Enter character name", Toast.LENGTH_LONG).show();
         }
+        if(soundFlag == true){
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
+            mp.start();
+        }
     }
 
     public void sound(View view) {
         if(soundFlag == true){
-            AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-            amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
             settingsImg.setImageResource(R.drawable.soundoff);
             soundFlag = false;
         } else if(soundFlag == false){
-            AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-            amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
             settingsImg.setImageResource(R.drawable.soundon);
             soundFlag = true;
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
+            mp.start();
         }
     }
 }
