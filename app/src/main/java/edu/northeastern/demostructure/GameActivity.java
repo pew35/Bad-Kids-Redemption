@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ public class GameActivity extends AppCompatActivity {
     Runnable statusRunnable;
     String user;
     TextView usertv;
+
 
     Runnable calculateRunnable = new Runnable() {
         @Override
