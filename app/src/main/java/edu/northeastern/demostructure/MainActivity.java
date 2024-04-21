@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     boolean fullSetUp = false;
     EditText username;
     String user;
+    ImageView maleChar;
+    ImageView femaleChar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +47,15 @@ public class MainActivity extends AppCompatActivity {
 
         settingsImg = findViewById(R.id.imageView5);
         username = findViewById(R.id.username);
+        maleChar = findViewById(R.id.imageView2);
+        femaleChar = findViewById(R.id.imageView4);
         db = FirebaseDatabase.getInstance().getReferenceFromUrl("https://finalproj-c26a1-default-rtdb.firebaseio.com/");
-        db.push().setValue("aditya");
     }
 
 
     public void startGame(View view) {
         user = username.getText().toString().trim();
-
+        db.child("User").child(user);
 
         if(fullSetUp) {
             Intent intent = new Intent(this, GameActivity.class);
@@ -64,15 +67,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void maleCharacter(View view) {
-        Intent intent = new Intent(this, GameActivity.class);
-        startActivity(intent);
+        maleChar.setImageResource(R.drawable.male_pressed);
         fullSetUp = true;
         boy = true;
+
     }
 
     public void femaleCharacter(View view) {
-        Intent intent = new Intent(this, GameActivity.class);
-        startActivity(intent);
+        femaleChar.setImageResource(R.drawable.female_pressed);
         fullSetUp = true;
         boy = false;
     }
