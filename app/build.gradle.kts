@@ -43,4 +43,8 @@ dependencies {
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
     implementation("io.github.florent37:shapeofview:1.4.7")
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.19")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
+    implementation("com.google.firebase:firebase-database")
 }
