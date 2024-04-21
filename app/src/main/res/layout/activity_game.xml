@@ -128,6 +128,8 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="18dp"
+        android:background="@color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
