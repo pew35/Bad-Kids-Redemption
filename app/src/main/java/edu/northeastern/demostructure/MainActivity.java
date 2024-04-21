@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         soundFlag = true;
 
         settingsImg = findViewById(R.id.imageView5);
-        db = FirebaseDatabase.getInstance().getReferenceFromUrl("https://stickit-90246-default-rtdb.firebaseio.com");
+        db = FirebaseDatabase.getInstance().getReferenceFromUrl("https://finalproj-c26a1-default-rtdb.firebaseio.com/");
     }
 
 
