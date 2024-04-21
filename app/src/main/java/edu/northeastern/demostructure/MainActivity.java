@@ -46,12 +46,13 @@ public class MainActivity extends AppCompatActivity {
         settingsImg = findViewById(R.id.imageView5);
         username = findViewById(R.id.username);
         db = FirebaseDatabase.getInstance().getReferenceFromUrl("https://finalproj-c26a1-default-rtdb.firebaseio.com/");
+        db.push().setValue("aditya");
     }
 
 
     public void startGame(View view) {
         user = username.getText().toString().trim();
-        db.child("user").setValue(user);
+
 
         if(fullSetUp) {
             Intent intent = new Intent(this, GameActivity.class);
