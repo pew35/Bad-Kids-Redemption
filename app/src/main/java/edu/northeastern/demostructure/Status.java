@@ -26,7 +26,6 @@ public class Status {
         this.knowledge = 20;
         this.charm = 20;
         this.magic = 0;
-        calculate();
     }
 
     // use addMovement() with even name
@@ -35,36 +34,34 @@ public class Status {
         actionStack.push(action);
     }
 
-    private void calculate(){
-        while (true) {
-            synchronized (actionStack) {
-                // Wait until there is an action in the stack
-                while (actionStack.isEmpty()) {
-                    try {
-                        actionStack.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+    public void calculate(){
+        synchronized (actionStack) {
+            // Wait until there is an action in the stack
+            while (actionStack.isEmpty()) {
+                try {
+                    actionStack.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                // Process the action
-                Action act = actionStack.pop();
-                this.doing = act.getName();
-                act.startTimer();
-                if (Objects.equals(act.getName(), study)){
-                    this.knowledge += increment;
-                    this.strength -= decrement;
-                } else if (Objects.equals(act.getName(), exercise)){
-                    this.strength += increment;
-                    this.knowledge -= decrement;
-                } else if (Objects.equals(act.getName(), date)){
-                    this.charm += increment;
-                    this.strength -= decrement;
-                } else if (Objects.equals(act.getName(), learnMagic)){
-                    this.magic += increment;
-                    this.charm -= decrement;
-                }
-                this.doing = "nothing";
             }
+            // Process the action
+            Action act = actionStack.pop();
+            this.doing = act.getName();
+            act.startTimer();
+            if (Objects.equals(act.getName(), study)){
+                this.knowledge += increment;
+                this.strength -= decrement;
+            } else if (Objects.equals(act.getName(), exercise)){
+                this.strength += increment;
+                this.knowledge -= decrement;
+            } else if (Objects.equals(act.getName(), date)){
+                this.charm += increment;
+                this.strength -= decrement;
+            } else if (Objects.equals(act.getName(), learnMagic)){
+                this.magic += increment;
+                this.charm -= decrement;
+            }
+            this.doing = "nothing";
         }
     }
 
@@ -97,15 +94,13 @@ public class Status {
         return 0;
     }
 
-    public int[] getStatus(){
+    public int getStatus(int num){
         int[] res = new int[4];
         res[0] = strength;
         res[1] = knowledge;
         res[2] = charm;
         res[3] = magic;
-        return res;
+        return res[num];
     }
-
-
 
 }

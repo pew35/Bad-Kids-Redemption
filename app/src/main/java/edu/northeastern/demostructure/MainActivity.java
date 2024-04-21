@@ -16,8 +16,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 import java.util.List;
@@ -27,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     boolean soundFlag;
     PopupMenu popupMenu;
     ImageView settingsImg;
-    DatabaseReference db ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         soundFlag = true;
 
         settingsImg = findViewById(R.id.imageView5);
-        db = FirebaseDatabase.getInstance().getReferenceFromUrl("https://finalproj-c26a1-default-rtdb.firebaseio.com");
     }
 
 
