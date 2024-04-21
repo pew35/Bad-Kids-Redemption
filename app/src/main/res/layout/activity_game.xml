@@ -130,8 +130,10 @@
         android:layout_height="53dp"
         android:layout_marginStart="17dp"
         android:layout_marginTop="670dp"
-        android:text="TextView"
+        android:text=""
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

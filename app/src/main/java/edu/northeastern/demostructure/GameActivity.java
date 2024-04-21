@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -46,6 +47,8 @@ public class GameActivity extends AppCompatActivity {
     Runnable statusRunnable;
     String user;
     TextView usertv;
+    String path;
+    TextView pathtxt;
 
 
     Runnable calculateRunnable = new Runnable() {
@@ -69,6 +72,7 @@ public class GameActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         user = bundle.getString("userName");
         usertv.setText(user);
+        pathtxt = findViewById(R.id.path);
 
         boy = getIntent().getBooleanExtra("boy", true);
         images = new Images(boy);
@@ -152,7 +156,17 @@ public class GameActivity extends AppCompatActivity {
 
     public void addEvent(View view){
         if(energy >= 30) {
-            status.addMovement(acts.get(currentIndex));
+            String selection = acts.get(currentIndex);
+            status.addMovement(selection);
+            if(path == null || path.equals("")){
+                path = "Path = "+ selection + " -> ";
+                pathtxt.setText(path);
+            } else {
+                path += selection + " -> ";
+                pathtxt.setText(path);
+            }
+
+            Log.i("%%%%%%%%%%%%%",path);
             Toast.makeText(this, acts.get(currentIndex), Toast.LENGTH_SHORT).show();
             energy -= 30;
             showEnergy();
