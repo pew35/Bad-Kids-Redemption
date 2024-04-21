@@ -12,12 +12,14 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,19 +33,26 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference db ;
     boolean boy;
     boolean fullSetUp = false;
+    EditText username;
+    String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         soundFlag = true;
+        FirebaseApp.initializeApp(this);
 
         settingsImg = findViewById(R.id.imageView5);
+        username = findViewById(R.id.username);
         db = FirebaseDatabase.getInstance().getReferenceFromUrl("https://finalproj-c26a1-default-rtdb.firebaseio.com/");
     }
 
 
     public void startGame(View view) {
+        user = username.getText().toString().trim();
+        db.child("user").setValue(user);
+
         if(fullSetUp) {
             Intent intent = new Intent(this, GameActivity.class);
             intent.putExtra("boy", boy);
