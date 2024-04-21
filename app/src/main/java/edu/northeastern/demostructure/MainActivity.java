@@ -55,7 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void startGame(View view) {
         user = username.getText().toString().trim();
-        db.child("User").child(user);
+        db.child("User").child("Name").setValue(user);
+        if(boy ==true){
+            db.child("User").child(user).child("character").setValue("boy");
+        } else if(boy == false){
+            db.child("User").child(user).child("character").setValue("girl");
+        }
 
         if(fullSetUp) {
             Intent intent = new Intent(this, GameActivity.class);
@@ -71,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
         femaleChar.setImageResource(R.drawable.female);
         fullSetUp = true;
         boy = true;
+        if(user != null){
+            db.child("User").child(user).child("character").setValue("boy");
+        } else{
+            Toast.makeText(MainActivity.this,"Enter character name", Toast.LENGTH_LONG).show();
+        }
 
     }
 
@@ -79,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
         maleChar.setImageResource(R.drawable.male);
         fullSetUp = true;
         boy = false;
+        if(user != null){
+            db.child("User").child(user).child("character").setValue("girl");
+        } else{
+            Toast.makeText(MainActivity.this,"Enter character name", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void sound(View view) {
