@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void startGame(View view) {
+        if(soundFlag == true){
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
+            mp.start();
+        }
         user = username.getText().toString().trim();
         db.child("User").child("Name").setValue(user);
         if(boy ==true){
@@ -65,18 +69,21 @@ public class MainActivity extends AppCompatActivity {
 
         if(fullSetUp) {
             Intent intent = new Intent(this, GameActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("userName",user);
+            intent.putExtras(bundle);
             intent.putExtra("boy", boy);
             startActivity(intent);
         }else{
             Toast.makeText(MainActivity.this,"Choose your character", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void maleCharacter(View view) {
         if(soundFlag == true){
             MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
             mp.start();
         }
-    }
-
-    public void maleCharacter(View view) {
         maleChar.setImageResource(R.drawable.male_pressed);
         femaleChar.setImageResource(R.drawable.female);
         fullSetUp = true;
@@ -86,13 +93,13 @@ public class MainActivity extends AppCompatActivity {
         } else{
             Toast.makeText(MainActivity.this,"Enter character name", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void femaleCharacter(View view) {
         if(soundFlag == true){
             MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
             mp.start();
         }
-    }
-
-    public void femaleCharacter(View view) {
         femaleChar.setImageResource(R.drawable.female_pressed);
         maleChar.setImageResource(R.drawable.male);
         fullSetUp = true;
@@ -101,10 +108,6 @@ public class MainActivity extends AppCompatActivity {
             db.child("User").child(user).child("character").setValue("girl");
         } else{
             Toast.makeText(MainActivity.this,"Enter character name", Toast.LENGTH_LONG).show();
-        }
-        if(soundFlag == true){
-            MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
-            mp.start();
         }
     }
 

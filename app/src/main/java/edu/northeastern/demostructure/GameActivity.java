@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -42,6 +43,8 @@ public class GameActivity extends AppCompatActivity {
     Runnable energyRunnable;
     Handler statusHandler;
     Runnable statusRunnable;
+    String user;
+    TextView usertv;
 
     Runnable calculateRunnable = new Runnable() {
         @Override
@@ -58,6 +61,12 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        usertv = findViewById(R.id.user);
+
+        Bundle bundle = getIntent().getExtras();
+        user = bundle.getString("userName");
+        usertv.setText(user);
 
         boy = getIntent().getBooleanExtra("boy", true);
         images = new Images(boy);
