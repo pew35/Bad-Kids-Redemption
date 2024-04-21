@@ -50,4 +50,5 @@ dependencies {
     implementation("com.google.firebase:firebase-database")
     implementation("com.google.gms:google-services:4.2.0")
     implementation("com.google.firebase:firebase-core:9.6.1")
+    implementation("com.jaredrummler:material-spinner:1.3.1")
 }
