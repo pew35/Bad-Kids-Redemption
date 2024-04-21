@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void maleCharacter(View view) {
         maleChar.setImageResource(R.drawable.male_pressed);
+        femaleChar.setImageResource(R.drawable.female);
         fullSetUp = true;
         boy = true;
 
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void femaleCharacter(View view) {
         femaleChar.setImageResource(R.drawable.female_pressed);
+        maleChar.setImageResource(R.drawable.male);
         fullSetUp = true;
         boy = false;
     }
