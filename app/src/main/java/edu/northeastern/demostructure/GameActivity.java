@@ -193,6 +193,7 @@ public class GameActivity extends AppCompatActivity {
             db.child("User").child(user).child("path").setValue(path);
             intent.putExtra("image", num);
             intent.putExtra("boy", boy);
+            intent.putExtra("path",path);
             startActivity(intent);
             return true;
         }

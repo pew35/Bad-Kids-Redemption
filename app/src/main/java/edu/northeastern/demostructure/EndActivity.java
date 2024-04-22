@@ -30,7 +30,8 @@ public class EndActivity extends AppCompatActivity {
         } else {
             endchar.setImageResource(R.drawable.female);
         }
-
+        String path = getIntent().getStringExtra("path");
+        endStory.setText(path);
 
         images = new Images(boy);
 
