@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class EndActivity extends AppCompatActivity {
     boolean boy;
@@ -12,12 +13,14 @@ public class EndActivity extends AppCompatActivity {
     WebView imageView;
     Images images;
     ImageView endchar;
+    TextView endStory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end);
         endchar = findViewById(R.id.imageView9);
         imageView = findViewById(R.id.ending);
+        endStory = findViewById(R.id.endStory);
 
         boy = getIntent().getBooleanExtra("boy", true);
         ending = getIntent().getIntExtra("image",-1);
