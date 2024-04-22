@@ -15,7 +15,7 @@
         android:theme="@style/Theme.DemoStructure"
         tools:targetApi="31">
         <activity
-            android:name=".into"
+            android:name=".MainActivitys"
             android:exported="false" />
         <activity
             android:name=".EndActivity"
@@ -24,7 +24,7 @@
             android:name=".GameActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".into"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
