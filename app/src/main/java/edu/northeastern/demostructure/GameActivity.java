@@ -1,5 +1,6 @@
 package edu.northeastern.demostructure;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -21,8 +22,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -57,6 +61,7 @@ public class GameActivity extends AppCompatActivity {
     TextView pathtxt;
     DatabaseReference db ;
     boolean soundFlag;
+    String pathFromFB;
 
 
     Runnable calculateRunnable = new Runnable() {
@@ -79,12 +84,28 @@ public class GameActivity extends AppCompatActivity {
 
         usertv = findViewById(R.id.user);
 
+        db.child("User").child(user).child("path").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                pathFromFB = snapshot.getValue().toString().trim();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         Bundle bundle = getIntent().getExtras();
         user = bundle.getString("userName");
         usertv.setText(user);
         pathtxt = findViewById(R.id.path);
         pathtxt.setMovementMethod(new ScrollingMovementMethod());
         soundFlag = bundle.getBoolean("sound");
+
+        if(pathFromFB != null){
+            pathtxt.setText(pathFromFB);
+        }
 
         boy = getIntent().getBooleanExtra("boy", true);
         images = new Images(boy);
@@ -185,9 +206,11 @@ public class GameActivity extends AppCompatActivity {
             if(path == null || path.equals("")){
                 path = "Path = "+ selection + " -> ";
                 pathtxt.setText(path);
+                db.child("User").child(user).child("path").setValue(path);
             } else {
                 path += selection + " -> ";
                 pathtxt.setText(path);
+                db.child("User").child(user).child("path").setValue(path);
             }
 
             Log.i("%%%%%%%%%%%%%",path);
