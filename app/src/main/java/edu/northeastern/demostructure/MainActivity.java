@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             bundle.putString("userName",user);
             intent.putExtras(bundle);
             intent.putExtra("boy", boy);
+            intent.putExtra("sound",soundFlag);
             startActivity(intent);
         }else{
             Toast.makeText(MainActivity.this,"Choose your character", Toast.LENGTH_LONG).show();
