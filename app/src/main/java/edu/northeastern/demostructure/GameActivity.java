@@ -163,6 +163,10 @@ public class GameActivity extends AppCompatActivity {
 
 
     public void previous(View view) {
+        if(soundFlag == true){
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
+            mp.start();
+        }
         currentIndex--;
         if(currentIndex < 0 ){
             currentIndex = acts.size()-1;
@@ -171,6 +175,10 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void addEvent(View view){
+        if(soundFlag == true){
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
+            mp.start();
+        }
         if(energy >= 30) {
             String selection = acts.get(currentIndex);
             status.addMovement(selection);
