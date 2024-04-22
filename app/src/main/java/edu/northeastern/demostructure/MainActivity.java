@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
             db.child("User").child(user).child("character").setValue("girl");
         }
 
-        if(fullSetUp) {
+        if(fullSetUp && username.getText() != null && !username.getText().toString().equals("")) {
+
             Intent intent = new Intent(this, GameActivity.class);
             Bundle bundle = new Bundle();
 
