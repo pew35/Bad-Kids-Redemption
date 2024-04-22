@@ -79,15 +79,32 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        usertv = findViewById(R.id.user);
+        respectProgressBar = findViewById(R.id.progressBar3);
+        energyProgressBar = findViewById(R.id.progressBar2);
+        webView = findViewById(R.id.image);
+
+        Bundle bundle = getIntent().getExtras();
+
+        user = bundle.getString("userName");
+        usertv.setText(user);
+
+        pathtxt = findViewById(R.id.path);
+        pathtxt.setMovementMethod(new ScrollingMovementMethod());
+        soundFlag = bundle.getBoolean("sound");
+
         FirebaseApp.initializeApp(this);
         db = FirebaseDatabase.getInstance().getReferenceFromUrl("https://finalproj-c26a1-default-rtdb.firebaseio.com/");
 
-        usertv = findViewById(R.id.user);
+
 
         db.child("User").child(user).child("path").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                pathFromFB = snapshot.getValue().toString().trim();
+                if(snapshot.getValue() != null){
+                    pathFromFB = snapshot.getValue().toString().trim();
+                }
             }
 
             @Override
@@ -96,12 +113,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        Bundle bundle = getIntent().getExtras();
-        user = bundle.getString("userName");
-        usertv.setText(user);
-        pathtxt = findViewById(R.id.path);
-        pathtxt.setMovementMethod(new ScrollingMovementMethod());
-        soundFlag = bundle.getBoolean("sound");
+
 
         if(pathFromFB != null){
             pathtxt.setText(pathFromFB);
@@ -125,9 +137,7 @@ public class GameActivity extends AppCompatActivity {
 
         currentIndex = 0;
         energy = 100;
-        respectProgressBar = findViewById(R.id.progressBar3);
-        energyProgressBar = findViewById(R.id.progressBar2);
-        webView = findViewById(R.id.image);
+
         showEnergy();
         energyHandler = new Handler();
         energyRunnable = new Runnable() {

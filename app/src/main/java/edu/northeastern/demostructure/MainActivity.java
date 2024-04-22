@@ -10,6 +10,7 @@ import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             mp.start();
         }
         user = username.getText().toString().trim();
+        Log.i("%%%%%%%%%%%%%%%%%",user);
         db.child("User").child("Name").setValue(user);
         if(boy ==true){
             db.child("User").child(user).child("character").setValue("boy");
@@ -70,10 +72,11 @@ public class MainActivity extends AppCompatActivity {
         if(fullSetUp) {
             Intent intent = new Intent(this, GameActivity.class);
             Bundle bundle = new Bundle();
-            bundle.putString("userName",user);
+
             intent.putExtras(bundle);
             intent.putExtra("boy", boy);
             intent.putExtra("sound",soundFlag);
+            intent.putExtra("userName",user);
             startActivity(intent);
         }else{
             Toast.makeText(MainActivity.this,"Choose your character", Toast.LENGTH_LONG).show();
