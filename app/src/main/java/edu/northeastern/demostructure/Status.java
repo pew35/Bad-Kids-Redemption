@@ -8,10 +8,12 @@ public class Status {
     private int knowledge;
     private int charm;
     private int magic;
+    private int cook;
     public static final String study = "studying";
     public static final String exercise = "exercising";
     public static final String date = "dating";
     public static final String learnMagic = "learningMagic";
+    public static final String cooking = "cooking";
 
     private final int fullPoint = 100;
     private final int increment = 20;
@@ -26,6 +28,7 @@ public class Status {
         this.knowledge = 20;
         this.charm = 20;
         this.magic = 0;
+        this.cook = 10;
     }
 
     // use addMovement() with even name
@@ -60,6 +63,8 @@ public class Status {
             } else if (Objects.equals(act.getName(), learnMagic)){
                 this.magic += increment;
                 this.charm -= decrement;
+            } else if (Objects.equals(act.getName(), cooking)) {
+                this.cook += increment;
             }
             this.doing = "nothing";
         }
@@ -73,10 +78,11 @@ public class Status {
 
     // use checkStatus to return the ending number, 1: strength, 2: knowledge 3:charm 4: magic-> become god
     public int checkStatus(){
-        if (this.strength < 0 ||
-                this.knowledge < 0 ||
-                this.charm < 0 ||
-                this.magic < 0){
+        if (this.strength <= 0 ||
+                this.knowledge <= 0 ||
+                this.charm <= 0 ||
+                this.magic < 0 ||
+                this.cook <= 0){
             return -1;
         }
         if (this.strength >= fullPoint &&
@@ -90,16 +96,19 @@ public class Status {
             return 2;
         }else if (this.charm >= fullPoint){
             return 3;
+        }else if (this.cook >= fullPoint){
+            return 5;
         }
         return 0;
     }
 
     public int getStatus(int num){
-        int[] res = new int[4];
+        int[] res = new int[5];
         res[0] = strength;
         res[1] = knowledge;
         res[2] = charm;
         res[3] = magic;
+        res[4] = cook;
         return res[num];
     }
 
