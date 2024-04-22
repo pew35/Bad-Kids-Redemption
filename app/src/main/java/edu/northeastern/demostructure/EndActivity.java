@@ -3,6 +3,7 @@ package edu.northeastern.demostructure;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ public class EndActivity extends AppCompatActivity {
         endchar = findViewById(R.id.imageView9);
         imageView = findViewById(R.id.ending);
         endStory = findViewById(R.id.endStory);
+        endStory.setMovementMethod(new ScrollingMovementMethod());
 
         boy = getIntent().getBooleanExtra("boy", true);
         ending = getIntent().getIntExtra("image",-1);
