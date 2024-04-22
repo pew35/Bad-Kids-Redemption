@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.ScrollingMovementMethod;
@@ -55,6 +56,7 @@ public class GameActivity extends AppCompatActivity {
     String path;
     TextView pathtxt;
     DatabaseReference db ;
+    boolean soundFlag;
 
 
     Runnable calculateRunnable = new Runnable() {
@@ -82,6 +84,7 @@ public class GameActivity extends AppCompatActivity {
         usertv.setText(user);
         pathtxt = findViewById(R.id.path);
         pathtxt.setMovementMethod(new ScrollingMovementMethod());
+        soundFlag = bundle.getBoolean("sound");
 
         boy = getIntent().getBooleanExtra("boy", true);
         images = new Images(boy);
@@ -137,6 +140,10 @@ public class GameActivity extends AppCompatActivity {
 
 
     public void next(View view) {
+        if(soundFlag == true){
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
+            mp.start();
+        }
         currentIndex++;
         if(currentIndex >= acts.size()){
             currentIndex = 0;
