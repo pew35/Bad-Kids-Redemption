@@ -20,7 +20,7 @@ public class Action {
             public void run() {
                 complete();
             }
-        }, 10000); // 10 seconds
+        }, 20000); // 10 seconds
     }
     private void complete() {
         System.out.println("Action completed: " + name);

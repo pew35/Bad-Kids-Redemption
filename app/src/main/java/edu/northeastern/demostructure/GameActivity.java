@@ -69,10 +69,11 @@ public class GameActivity extends AppCompatActivity {
         @Override
         public void run() {
             status.calculate();
+            respectProgressBar.setProgress(status.getStatus(currentIndex));
         }
     };
 
-    int energyIncreaseInterval = 6000; // Interval in milliseconds for energy increase (e.g., 6 seconds)
+    int energyIncreaseInterval = 10000; // Interval in milliseconds for energy increase (e.g., 10 seconds)
     int energyIncreaseAmount = 10; // Amount of energy to increase each time
 
 
