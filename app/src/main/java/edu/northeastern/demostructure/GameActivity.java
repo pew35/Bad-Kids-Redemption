@@ -141,6 +141,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void addEvent(View view){
         if(energy >= 30) {
+
             status.addMovement(acts.get(currentIndex));
             Toast.makeText(this, acts.get(currentIndex), Toast.LENGTH_SHORT).show();
             energy -= 30;
