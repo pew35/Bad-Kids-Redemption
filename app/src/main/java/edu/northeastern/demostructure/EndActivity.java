@@ -2,6 +2,7 @@ package edu.northeastern.demostructure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.webkit.WebView;
@@ -15,6 +16,7 @@ public class EndActivity extends AppCompatActivity {
     Images images;
     ImageView endchar;
     TextView endStory;
+    Boolean soundFlag;
 
     String cook = "Guided by a passion for culinary creativity, you rise to fame as a master chef, delighting palates with your delectable dishes and innovative flavors. Your culinary creations bring joy and warmth to all who taste them, a testament to the transformative power of food and love.";
     String magic = "Embracing the arcane arts, you master the ancient secrets of magic, wielding its power with grace and precision. With each incantation spoken and spell cast, you reshape reality itself, a sorcerer of unparalleled skill and wisdom.";
@@ -33,6 +35,7 @@ public class EndActivity extends AppCompatActivity {
 
         boy = getIntent().getBooleanExtra("boy", true);
         ending = getIntent().getIntExtra("image",-1);
+        soundFlag = getIntent().getBooleanExtra("soundFlag",true);
 
         if(boy){
             endchar.setImageResource(R.drawable.male);
@@ -56,6 +59,16 @@ public class EndActivity extends AppCompatActivity {
         imageView.getSettings().setLoadWithOverviewMode(true);
         imageView.getSettings().setUseWideViewPort(true);
         imageView.loadUrl(endingURL);
+
+        if(soundFlag){
+            MediaPlayer mp;
+            if (ending == -1){
+                mp = MediaPlayer.create(this, R.raw.lost);
+            } else {
+                mp = MediaPlayer.create(this, R.raw.win);
+            }
+            mp.start();
+        }
     }
 }
 

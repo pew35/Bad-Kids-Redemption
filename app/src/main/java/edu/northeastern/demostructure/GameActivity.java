@@ -209,7 +209,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void addEvent(View view){
         if(soundFlag == true){
-            MediaPlayer mp = MediaPlayer.create(this, R.raw.click1);
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.work);
             mp.start();
         }
         if(energy >= 30) {
@@ -245,7 +245,7 @@ public class GameActivity extends AppCompatActivity {
             db.child("User").child(user).child("path").setValue(path);
             intent.putExtra("image", num);
             intent.putExtra("boy", boy);
-            intent.putExtra("path",path);
+            intent.putExtra("soundFlag",soundFlag);
             startActivity(intent);
             return true;
         }
