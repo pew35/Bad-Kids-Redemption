@@ -61,7 +61,7 @@ public class GameActivity extends AppCompatActivity {
     TextView pathtxt;
     DatabaseReference db ;
     boolean soundFlag;
-    String pathFromFB;
+     String pathFromFB;
 
 
     Runnable calculateRunnable = new Runnable() {
@@ -87,7 +87,7 @@ public class GameActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        user = bundle.getString("userName");
+        user = bundle.getString("userName").toString().trim();
         usertv.setText(user);
 
         pathtxt = findViewById(R.id.path);
@@ -96,28 +96,10 @@ public class GameActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         db = FirebaseDatabase.getInstance().getReferenceFromUrl("https://finalproj-c26a1-default-rtdb.firebaseio.com/");
+        firebaseData();
 
+        pathtxt.setText(pathFromFB);
 
-
-        db.child("User").child(user).child("path").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.getValue() != null){
-                    pathFromFB = snapshot.getValue().toString().trim();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
-
-        if(pathFromFB != null){
-            pathtxt.setText(pathFromFB);
-        }
 
         boy = getIntent().getBooleanExtra("boy", true);
         images = new Images(boy);
@@ -248,6 +230,26 @@ public class GameActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    public void firebaseData(){
+
+        db.child("User").child(user).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    pathFromFB = snapshot.child("path").getValue().toString().trim();
+                    final String str = snapshot.child("path").getValue().toString().trim();
+                    pathtxt.setText(str);
+                   // pathtxt.setText(pathFromFB);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 }
