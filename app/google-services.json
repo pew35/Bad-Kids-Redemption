@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "564733337651",
+    "firebase_url": "https://finalproj-c26a1-default-rtdb.firebaseio.com",
+    "project_id": "finalproj-c26a1",
+    "storage_bucket": "finalproj-c26a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564733337651:android:a95e47fa5ca3aaba6e4346",
+        "android_client_info": {
+          "package_name": "edu.northeastern.demostructure"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-LQp8sBrhxOkzb-wXYMcOLzFFGFBv2rk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
