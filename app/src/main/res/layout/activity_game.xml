@@ -129,6 +129,7 @@
         android:layout_width="358dp"
         android:layout_height="55dp"
         android:layout_marginStart="24dp"
+        android:scrollbars = "vertical"
         android:layout_marginTop="660dp"
         android:autoSizeMaxTextSize="100sp"
         android:autoSizeMinTextSize="12sp"

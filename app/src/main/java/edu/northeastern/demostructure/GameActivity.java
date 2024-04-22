@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -80,6 +81,7 @@ public class GameActivity extends AppCompatActivity {
         user = bundle.getString("userName");
         usertv.setText(user);
         pathtxt = findViewById(R.id.path);
+        pathtxt.setMovementMethod(new ScrollingMovementMethod());
 
         boy = getIntent().getBooleanExtra("boy", true);
         images = new Images(boy);
