@@ -92,7 +92,7 @@ public class GameActivity extends AppCompatActivity {
         usertv.setText(user);
 
         pathtxt = findViewById(R.id.path);
-        pathtxt.setMovementMethod(new ScrollingMovementMethod());
+        //pathtxt.setMovementMethod(new ScrollingMovementMethod());
         soundFlag = bundle.getBoolean("sound");
 
         FirebaseApp.initializeApp(this);

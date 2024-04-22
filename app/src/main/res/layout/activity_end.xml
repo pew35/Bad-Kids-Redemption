@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bkg"
+    android:onClick="tryAgain"
     tools:context=".EndActivity">
 
     <io.github.florent37.shapeofview.shapes.CircleView
@@ -31,8 +32,8 @@
 
     <WebView
         android:id="@+id/ending"
-        android:layout_width="380dp"
-        android:layout_height="480dp"
+        android:layout_width="369dp"
+        android:layout_height="426dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
@@ -41,13 +42,22 @@
 
     <TextView
         android:id="@+id/endStory"
-        android:layout_width="195dp"
-        android:layout_height="184dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="513dp"
+        android:layout_width="201dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="472dp"
         android:background="#92FFFFFF"
         android:scrollbars="vertical"
         android:text="Guided by a passion for culinary creativity, you rise to fame as a master chef, delighting palates with your delectable dishes and innovative flavors. Your culinary creations bring joy and warmth to all who taste them, a testament to the transformative power of food and love."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/try_again"
+        android:layout_width="143dp"
+        android:layout_height="50dp"
+        android:text="Try Again !!"
+        tools:layout_editor_absoluteX="245dp"
+        tools:layout_editor_absoluteY="464dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

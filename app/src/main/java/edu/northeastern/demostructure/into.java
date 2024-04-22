@@ -15,6 +15,7 @@ public class into extends AppCompatActivity {
     String intro2 = "As you navigate through the game, you'll encounter various challenges and opportunities for growth. Your choices will shape your destiny, leading to one of five possible endings. Will you prioritize knowledge, physical strength, relationships, culinary skills, or even delve into the mystical realm of magic? The path you choose will determine your fate. Are you ready to embark on this transformative journey and discover which ending awaits you?";
 
 
+
     String name;
     Button next;
     TextView text;
@@ -33,7 +34,7 @@ public class into extends AppCompatActivity {
     }
 
     public void next(View view){
-        if (time>=0){
+        if (time>0){
             text.setText(intro2);
             image.setImageResource(R.drawable.g_intro);
             time--;

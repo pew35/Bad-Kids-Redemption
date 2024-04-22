@@ -2,9 +2,11 @@ package edu.northeastern.demostructure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -69,6 +71,11 @@ public class EndActivity extends AppCompatActivity {
             }
             mp.start();
         }
+    }
+
+    public void tryAgain(View view){
+        Intent intent = new Intent(this, into.class);
+        startActivity(intent);
     }
 }
 
