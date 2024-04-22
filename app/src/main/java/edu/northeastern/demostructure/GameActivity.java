@@ -92,7 +92,7 @@ public class GameActivity extends AppCompatActivity {
         usertv.setText(user);
 
         pathtxt = findViewById(R.id.path);
-        pathtxt.setMovementMethod(new ScrollingMovementMethod());
+        //pathtxt.setMovementMethod(new ScrollingMovementMethod());
         soundFlag = bundle.getBoolean("sound");
 
         FirebaseApp.initializeApp(this);
@@ -240,9 +240,12 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                    pathFromFB = snapshot.child("path").getValue().toString().trim();
-                    final String str = snapshot.child("path").getValue().toString().trim();
-                    pathtxt.setText(str);
+                    if(snapshot.child("path").getValue() != null){
+                        pathFromFB = snapshot.child("path").getValue().toString().trim();
+                        final String str = snapshot.child("path").getValue().toString().trim();
+                        pathtxt.setText(str);
+                    }
+
                    // pathtxt.setText(pathFromFB);
                 }
             }
