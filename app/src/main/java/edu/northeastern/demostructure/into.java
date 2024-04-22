@@ -33,7 +33,7 @@ public class into extends AppCompatActivity {
     }
 
     public void next(View view){
-        if (time>=0){
+        if (time>0){
             text.setText(intro2);
             image.setImageResource(R.drawable.g_intro);
             time--;
