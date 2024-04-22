@@ -190,6 +190,7 @@ public class GameActivity extends AppCompatActivity {
         num = status.checkStatus();
         if (num != 0){
             Intent intent = new Intent(this, EndActivity.class);
+            db.child("User").child(user).child("path").setValue(path);
             intent.putExtra("image", num);
             intent.putExtra("boy", boy);
             startActivity(intent);
