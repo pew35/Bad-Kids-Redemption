@@ -18,6 +18,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,6 +53,7 @@ public class GameActivity extends AppCompatActivity {
     TextView usertv;
     String path;
     TextView pathtxt;
+    DatabaseReference db ;
 
 
     Runnable calculateRunnable = new Runnable() {
@@ -66,6 +71,8 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        FirebaseApp.initializeApp(this);
+        db = FirebaseDatabase.getInstance().getReferenceFromUrl("https://finalproj-c26a1-default-rtdb.firebaseio.com/");
 
         usertv = findViewById(R.id.user);
 
